@@ -1,0 +1,92 @@
+/* Styles for the thumbnail gallery */
+.thumbnail-gallery {
+    display: grid; /* Use grid layout for thumbnails */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive column sizing */
+    gap: 10px; /* Spacing between thumbnails */
+    padding: 10px; /* Padding around the gallery */
+}
+
+.thumbnail-gallery img {
+    width: 150px; /* Fixed width for thumbnails */
+    height: 150px; /* Fixed height for thumbnails */
+    object-fit: cover; /* Cover the area without distorting the image */
+    cursor: pointer; /* Pointer cursor for clickable images */
+    transition: transform 0.3s ease; /* Smooth zoom effect on hover */
+}
+
+.thumbnail-gallery img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top of other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+
+.modal img {
+    width: 80%; /* Fixed width for modal image */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 800px; /* Maximum width for large screens */
+    max-height: 80%; /* Limit height to 80% of the viewport */
+    object-fit: contain; /* Ensure image fits within the container */
+    margin: auto; /* Center image within modal */
+    display: block; /* Ensure image displays as block */
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer; /* Pointer cursor for clickable close button */
+}
+
+.close-btn:hover {
+    color: #bbb; /* Lighten color on hover */
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center buttons */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer; /* Pointer cursor for clickable buttons */
+    border-radius: 3px;
+}
+
+#prev-btn {
+    left: 10px; /* Position previous button on the left */
+}
+
+#next-btn {
+    right: 10px; /* Position next button on the right */
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darken background on hover */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .modal img {
+        width: 100%; /* Full width on small screens */
+        height: auto;
+        max-width: none; /* Remove max-width constraint */
+        max-height: 90%; /* Limit height to 90% of the viewport */
+    }
+}
